@@ -5,7 +5,29 @@
  */
 
 // @lc code=start
+using System.Collections.Generic;
+
 public class Solution
+{
+    public int[] TwoSum(int[] nums, int target)
+    {
+        int complement = 0;
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        for (int i = 0; i < nums.Length; i++)
+        {
+            complement = target - nums[i];
+            if (map.ContainsKey(complement))
+            {
+                return new int[] { map[complement], i };
+            }
+            map.Add(nums[i], i);
+        }
+        return null;
+    }
+}
+
+// 比較直觀的方法
+public class Solution2
 {
     public int[] TwoSum(int[] nums, int target)
     {
@@ -23,4 +45,3 @@ public class Solution
     }
 }
 // @lc code=end
-
