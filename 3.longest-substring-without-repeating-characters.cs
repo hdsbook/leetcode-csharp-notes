@@ -20,19 +20,19 @@ public class Solution
         int max = 0;
         int right = 0;
         int left = 0;
-        HashSet<char> hashset = new HashSet<char>();
+        HashSet<char> charSet = new HashSet<char>();
         while (right < s.Length)
         {
-            char c = s[right++];
+            char newChar = s[right++];
 
             // 當目前範圍包含新字元
-            while (hashset.Contains(c))
+            while (charSet.Contains(newChar))
             {
                 // 從左而右的縮小範圍，直到不含該字元
-                hashset.Remove(s[left++]);
+                charSet.Remove(s[left++]);
             }
-            hashset.Add(c);
-            max = Math.Max(hashset.Count, max);
+            charSet.Add(newChar);
+            max = Math.Max(charSet.Count, max);
         }
 
         return max;
