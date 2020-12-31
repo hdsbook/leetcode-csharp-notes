@@ -9,6 +9,39 @@ public class Solution
 {
     public int RomanToInt(string s)
     {
+        System.Collections.Generic.Dictionary<char, int> map =
+            new System.Collections.Generic.Dictionary<char, int>
+            {
+                {'M', 1000},
+                {'D', 500},
+                {'C', 100},
+                {'L', 50},
+                {'X', 10},
+                {'V', 5},
+                {'I', 1},
+            };
+
+        int result = 0;
+        int i = 0;
+        while (i < s.Length)
+        {
+            if (i < s.Length - 1 && map[s[i]] < map[s[i + 1]])
+            {
+                result -= map[s[i]];
+            }
+            else
+            {
+                result += map[s[i]];
+            }
+            i++;
+        }
+        return result;
+    }
+}
+public class MyOriginSolution
+{
+    public int RomanToInt(string s)
+    {
         System.Collections.Generic.Dictionary<string, int> set1 =
             new System.Collections.Generic.Dictionary<string, int>
             {
