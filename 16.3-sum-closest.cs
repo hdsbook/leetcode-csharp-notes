@@ -15,7 +15,7 @@ public class Solution
         }
 
         System.Array.Sort(nums);
-        int minDistance = int.MaxValue;
+        int minDiff = int.MaxValue;
         int closestSum = target;
         for (int nth = 0; nth < nums.Length; nth++)
         {
@@ -31,10 +31,10 @@ public class Solution
                 }
                 else
                 {
-                    int distance = System.Math.Abs(target - sum);
-                    if (distance < minDistance)
+                    int curDiff = System.Math.Abs(target - sum);
+                    if (curDiff < minDiff)
                     {
-                        minDistance = distance;
+                        minDiff = curDiff;
                         closestSum = sum;
                     }
 
